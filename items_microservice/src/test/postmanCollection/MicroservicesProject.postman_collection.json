@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "27a5dbd9-d8ca-4d5c-a335-9f9ec561aa3d",
+		"name": "MicroservicesProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/food",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/food/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"food",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateFood",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":2,\n    \"name\":\"chiclete\",\n    \"description\":\"chiclete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/food/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"food",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertFood",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"value": "Pipoca",
+						"type": "text"
+					},
+					{
+						"key": "description",
+						"value": "Pipoca",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/food/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"food",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertFood Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"Hamburguer\"",
+						"type": "text"
+					},
+					{
+						"key": "description",
+						"value": "\"Hamburguer 2 queijos\"",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/food/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"food",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
