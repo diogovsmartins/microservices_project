@@ -1,7 +1,7 @@
 package com.example.items_microservice;
 
-import com.example.items_microservice.domain.Food;
-import com.example.items_microservice.domain.factory.FoodFactory;
+import com.example.items_microservice.domain.Item;
+import com.example.items_microservice.domain.factory.ItemFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 @ExtendWith(MockitoExtension.class)
-class FoodFactoryTest {
+class ItemFactoryTest {
     @InjectMocks
-    FoodFactory foodFactory;
+    ItemFactory itemFactory;
 
     @Test
     void shouldReturnAnInstanceOfChicken() {
-        assertInstanceOf(Food.class, foodFactory.createFood());
+        assertInstanceOf(Item.class, itemFactory.createItem());
     }
 
 }
