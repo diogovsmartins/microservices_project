@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/catalog_service/catalog_service.iml" filepath="$PROJECT_DIR$/catalog_service/catalog_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/items_microservice/items_microservice.iml" filepath="$PROJECT_DIR$/items_microservice/items_microservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/microservices_project.iml" filepath="$PROJECT_DIR$/.idea/microservices_project.iml" />
     </modules>
