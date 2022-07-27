@@ -3,6 +3,7 @@ package com.example.items_microservice.services;
 import com.example.items_microservice.domain.Item;
 import com.example.items_microservice.domain.builder.ItemBuilder;
 import com.example.items_microservice.domain.dto.ItemDto;
+
 import com.example.items_microservice.domain.factory.ItemFactory;
 import com.example.items_microservice.repositories.ItemRepositorie;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,8 @@ public class ItemService {
         Item itemToUpdate = itemRepositorie.findById(item.getId()).orElse(itemFactory.createItem());
         itemToUpdate.setName(item.getName());
         itemToUpdate.setDescription(item.getDescription());
+        itemToUpdate.setInventoryCount(item.getInventoryCount());
+        itemToUpdate.setPrice(item.getPrice());
         itemRepositorie.saveAndFlush(itemToUpdate);
     }
 }

@@ -8,17 +8,22 @@ import java.math.BigInteger;
 
 @Entity
 @Table(name = "items")
-public class Item {
+public class  Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NonNull
+    @Column(columnDefinition = "varchar(200)", nullable = false)
     private String name;
+    @Column(columnDefinition = "varchar(300)")
     private String description;
     @NonNull
+    @Column(name = "inventory_count", columnDefinition = "long")
     private BigInteger inventoryCount;
     @NonNull
+    @Column(columnDefinition = "decimal(12,2)")
     private BigDecimal price;
+    @Column(name = "in_stock")
     private Boolean inStock;
 
     public Item(@NonNull String name, String description, @NonNull BigInteger inventoryCount, @NonNull BigDecimal price, Boolean inStock) {
