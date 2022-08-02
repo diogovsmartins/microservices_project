@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemsService {
@@ -16,7 +18,21 @@ public class ItemsService {
         this.itemsFeignClient=itemsFeignClient;
     }
 
-    public List<ItemV1> getItems(){
+    public List<ItemV1> getItems(Boolean inStock){
+        if(Boolean.FALSE.equals(inStock)){
+            return Optional.ofNullable(
+                    itemsFeignClient
+                    .getAll()
+                    .getBody())
+                    .get()
+                    .stream()
+                    .filter(itemV1 -> itemV1.getInStock().equals(Boolean.FALSE))
+                    .collect(Collectors.toList());
+        }
         return  itemsFeignClient.getAll().getBody();
+    }
+
+    public Optional<ItemV1> getItemById(Long id){
+        return Optional.ofNullable(itemsFeignClient.getById(id).getBody());
     }
 }

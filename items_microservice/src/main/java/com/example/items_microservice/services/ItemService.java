@@ -3,7 +3,6 @@ package com.example.items_microservice.services;
 import com.example.items_microservice.domain.Item;
 import com.example.items_microservice.domain.builder.ItemBuilder;
 import com.example.items_microservice.domain.dto.ItemDto;
-
 import com.example.items_microservice.domain.factory.ItemFactory;
 import com.example.items_microservice.repositories.ItemRepositorie;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,8 @@ public class ItemService {
     }
 
     public Optional<ItemDto> getById(Long id) {
-        Item item=itemRepositorie.findById(id).orElse(itemFactory.createItem());
-        ItemDto itemDto=new ItemDto(item);
+        Item item = itemRepositorie.findById(id).orElse(itemFactory.createItem());
+        ItemDto itemDto = new ItemDto(item);
         return Optional.of(itemDto);
     }
 
@@ -33,7 +32,7 @@ public class ItemService {
         return itemRepositorie.findAll();
     }
 
-    public Optional<Item> insertItem(ItemDto itemDTO) {
+    public void insertItem(ItemDto itemDTO) {
         Item item = new ItemBuilder()
                 .setName(itemDTO.getName())
                 .setDescription(itemDTO.getDescription())
@@ -42,7 +41,6 @@ public class ItemService {
                 .setInStock(Boolean.TRUE)
                 .build();
         itemRepositorie.save(item);
-        return Optional.of(item);
     }
 
     public void delete(Long id) {
