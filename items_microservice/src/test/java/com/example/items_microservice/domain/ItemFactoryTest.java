@@ -1,4 +1,4 @@
-package com.example.items_microservice;
+package com.example.items_microservice.domain;
 
 import com.example.items_microservice.domain.Item;
 import com.example.items_microservice.domain.factory.ItemFactory;
