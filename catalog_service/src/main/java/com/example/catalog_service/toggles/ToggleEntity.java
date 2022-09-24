@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ToggleEntity {
-    private String ActivatedCountries;
+    private String activatedCountries;
     private Boolean activated;
 
 }

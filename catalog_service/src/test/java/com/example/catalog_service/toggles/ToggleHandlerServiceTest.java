@@ -21,7 +21,7 @@ class ToggleHandlerServiceTest {
 
     @Test
     void teste1(){
-        var var=toggleHandlerService.getV1ActivatedCountries();
+        var var=toggleHandlerService.getV1CountryToggle();
         assertEquals("a",var);
     }
 
