@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/v1")
-public class V1ItemsController {
+@RequestMapping(value = "/catalog")
+public class ItemsController {
     private final ItemsService itemsService;
 
     @Autowired
-    public V1ItemsController(
+    public ItemsController(
             final ItemsService itemsService,
             final ToggleHandlerService toggleHandlerService) {
         this.itemsService = itemsService;
