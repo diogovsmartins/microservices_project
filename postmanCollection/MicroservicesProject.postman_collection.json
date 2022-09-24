@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "27a5dbd9-d8ca-4d5c-a335-9f9ec561aa3d",
+		"name": "MicroservicesProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Item_microservice",
+			"item": [
+				{
+					"name": "items/delete/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "name",
+								"value": "\"Hamburguer\"",
+								"type": "text"
+							},
+							{
+								"key": "description",
+								"value": "\"Hamburguer 2 queijos\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}8080/items/delete/5",
+							"host": [
+								"{{localhost}}8080"
+							],
+							"path": [
+								"items",
+								"delete",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "inStock",
+								"value": "FALSE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}8080/items",
+							"host": [
+								"{{localhost}}8080"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "items/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseValue = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"itemName\", responseValue.name);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Must have an item id\", function(){",
+									"    console.log(pm.response)",
+									"    pm.expect(pm.response.id).to.not.eql(null);",
+									"})",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}8080/items/5",
+							"host": [
+								"{{localhost}}8080"
+							],
+							"path": [
+								"items",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "items/update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1,\n    \"name\":\"chiclete\",\n    \"description\":\"chiclete de morango\",\n    \"inventoryCount\":100,\n    \"price\":1.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}8080/items/update",
+							"host": [
+								"{{localhost}}8080"
+							],
+							"path": [
+								"items",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "items/insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "name",
+								"value": "Pipoca",
+								"type": "text"
+							},
+							{
+								"key": "description",
+								"value": "Pipoca",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Cobertor\",\n    \"description\":\"Cobertor azul\",\n    \"inventoryCount\":20,\n    \"price\":100.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}8080/items/insert",
+							"host": [
+								"{{localhost}}8080"
+							],
+							"path": [
+								"items",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "catalog_microservice",
+			"item": [
+				{
+					"name": "catalog/items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "inStock",
+								"value": "TRUE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}8081/catalog/items",
+							"host": [
+								"{{localhost}}8081"
+							],
+							"path": [
+								"catalog",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "catalog/items/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}8081/catalog/items/1",
+							"host": [
+								"{{localhost}}8081"
+							],
+							"path": [
+								"catalog",
+								"items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
