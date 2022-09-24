@@ -22,7 +22,7 @@ public class ItemController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<ItemDto>> getById(@PathVariable Long id) {
+    public ResponseEntity<Optional<Item>> getById(@PathVariable Long id) {
         return ResponseEntity.ok(itemService.getById(id));
     }
 

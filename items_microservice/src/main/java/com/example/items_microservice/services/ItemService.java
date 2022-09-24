@@ -22,10 +22,9 @@ public class ItemService {
         this.itemFactory = itemFactory;
     }
 
-    public Optional<ItemDto> getById(Long id) {
+    public Optional<Item> getById(Long id) {
         Item item = itemRepositorie.findById(id).orElse(itemFactory.createItem());
-        ItemDto itemDto = new ItemDto(item);
-        return Optional.of(itemDto);
+        return Optional.of(item);
     }
 
     public List<Item> getAll() {
