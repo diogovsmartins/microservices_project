@@ -1,4 +1,4 @@
-package com.example.catalog_service.v1.toggles;
+package com.example.catalog_service.toggles;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -7,19 +7,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class ToggleHandlerService {
 
-    private  ToggleEntity v1CountryToggle;
-    public ToggleEntity getV1CountryToggle() {
-        return v1CountryToggle;
+    private  ToggleEntity countryToggle;
+    public ToggleEntity getCountryToggle() {
+        return countryToggle;
     }
 
-    public void setV1CountryToggle(ToggleEntity v1CountryToggle) {
-        this.v1CountryToggle = v1CountryToggle;
+    public void setCountryToggle(ToggleEntity countryToggle) {
+        this.countryToggle = countryToggle;
     }
 
     @Override
     public String toString() {
         return "ToggleHandlerService{" +
-                "v1CountryToggle=" + v1CountryToggle +
+                "countryToggle=" + countryToggle +
                 '}';
     }
 }

@@ -1,17 +1,15 @@
 package com.example.catalog_service;
 
-import com.example.catalog_service.v1.toggles.ToggleHandlerService;
+import com.example.catalog_service.toggles.ToggleHandlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 @EnableFeignClients
-@ConfigurationPropertiesScan
 public class CatalogServiceApplication {
 
     @Autowired

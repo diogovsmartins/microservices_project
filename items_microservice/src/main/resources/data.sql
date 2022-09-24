@@ -5,4 +5,4 @@ VALUES ('Cadeira', 'Cadeira de madeira', 10, 49.99, true),
        ('Play Station 5', 'Play Station 5, 1 controle.', 5, 4000, true),
        ('Digimon Survive', 'Digimon Survive first month edition for nintendo Switch.', 0, 250, false),
        ('Pokemon Scarlet', 'Pokemon Scarlet nintendo switch pre order.', 0, 250, false),
-       ('Pokemon Violet', 'Pokemon Violet nintendo switch pre order.', 0, 250, false);;
+       ('Pokemon Violet', 'Pokemon Violet nintendo switch pre order.', 0, 250, false);

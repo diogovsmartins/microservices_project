@@ -1,7 +1,7 @@
-package com.example.catalog_service.v1.services;
+package com.example.catalog_service.services;
 
-import com.example.catalog_service.v1.ItemV1;
-import com.example.catalog_service.v1.feignClients.ItemsFeignClient;
+import com.example.catalog_service.entities.Item;
+import com.example.catalog_service.feignClients.ItemsFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class ItemsService {
         this.itemsFeignClient = itemsFeignClient;
     }
 
-    public List<ItemV1> getItems(Boolean inStock) {
+    public List<Item> getItems(Boolean inStock) {
         if (Boolean.FALSE.equals(inStock)) {
             return Optional.ofNullable(
                             itemsFeignClient
@@ -26,13 +26,19 @@ public class ItemsService {
                                     .getBody())
                     .get()
                     .stream()
-                    .filter(itemV1 -> itemV1.getInStock().equals(Boolean.FALSE))
+                    .filter(item -> Boolean.FALSE.equals(item.getInStock()))
                     .collect(Collectors.toList());
         }
-        return itemsFeignClient.getAll().getBody();
+        return Optional.ofNullable(itemsFeignClient
+                .getAll()
+                .getBody())
+                .get()
+                .stream()
+                .filter(item->Boolean.TRUE.equals(item.getInStock()))
+                .collect(Collectors.toList());
     }
 
-    public Optional<ItemV1> getItemById(Long id) {
+    public Optional<Item> getItemById(Long id) {
         return Optional.ofNullable(itemsFeignClient.getById(id).getBody());
     }
 }

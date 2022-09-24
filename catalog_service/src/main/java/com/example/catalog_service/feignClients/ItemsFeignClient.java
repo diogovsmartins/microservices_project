@@ -1,6 +1,6 @@
-package com.example.catalog_service.v1.feignClients;
+package com.example.catalog_service.feignClients;
 
-import com.example.catalog_service.v1.ItemV1;
+import com.example.catalog_service.entities.Item;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +11,8 @@ import java.util.List;
 @FeignClient(value = "itemsFeignClient", url = "http://localhost:8080/items")
 public interface ItemsFeignClient {
     @GetMapping
-    ResponseEntity<List<ItemV1>> getAll();
+    ResponseEntity<List<Item>> getAll();
 
     @GetMapping(value = "/{id}")
-    ResponseEntity<ItemV1> getById(@PathVariable Long id);
+    ResponseEntity<Item> getById(@PathVariable Long id);
 }

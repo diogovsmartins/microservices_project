@@ -1,4 +1,4 @@
-package com.example.catalog_service.v1.toggles;
+package com.example.catalog_service.toggles;
 
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +21,7 @@ class ToggleHandlerServiceTest {
 
     @Test
     void teste1(){
-        var var=toggleHandlerService.getV1CountryToggle();
+        var var=toggleHandlerService.getCountryToggle();
         assertEquals("a",var);
     }
 

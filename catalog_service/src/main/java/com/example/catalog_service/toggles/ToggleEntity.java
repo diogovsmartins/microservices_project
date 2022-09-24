@@ -1,4 +1,4 @@
-package com.example.catalog_service.v1.toggles;
+package com.example.catalog_service.toggles;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,5 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ToggleEntity {
-    private String activatedCountries;
-    private Boolean activated;
-
+    private String activeForCountries;
 }

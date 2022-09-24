@@ -1,4 +1,4 @@
-package com.example.catalog_service.v1;
+package com.example.catalog_service.entities;
 
 
 import lombok.Getter;
@@ -9,7 +9,7 @@ import java.math.BigInteger;
 
 @Getter
 @Setter
-public class ItemV1 {
+public class Item {
     private Long id;
     private String name;
     private String description;
